@@ -1,13 +1,12 @@
 <template>
-  <swiper :options="swiperOption" class="icons">
+  <swiper :options="swiperOption"
+          class="icons">
     <!-- slides -->
     <swiper-slide>
       <div class="icon-item">
         <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
+          <img src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
+               alt="" />
         </div>
         <div class="icon-text">
           景点门票
@@ -15,10 +14,8 @@
       </div>
       <div class="icon-item">
         <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
+          <img src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
+               alt="" />
         </div>
         <div class="icon-text">
           景点门票
@@ -26,10 +23,8 @@
       </div>
       <div class="icon-item">
         <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
+          <img src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
+               alt="" />
         </div>
         <div class="icon-text">
           景点门票
@@ -37,10 +32,8 @@
       </div>
       <div class="icon-item">
         <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
+          <img src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
+               alt="" />
         </div>
         <div class="icon-text">
           景点门票
@@ -48,10 +41,7 @@
       </div>
       <div class="icon-item">
         <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
+          <img src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png" />
         </div>
         <div class="icon-text">
           景点门票
@@ -59,10 +49,8 @@
       </div>
       <div class="icon-item">
         <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
+          <img src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
+               alt="" />
         </div>
         <div class="icon-text">
           景点门票
@@ -70,10 +58,8 @@
       </div>
       <div class="icon-item">
         <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
+          <img src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
+               alt="" />
         </div>
         <div class="icon-text">
           景点门票
@@ -81,10 +67,8 @@
       </div>
       <div class="icon-item">
         <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
+          <img src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
+               alt="" />
         </div>
         <div class="icon-text">
           景点门票
@@ -94,23 +78,21 @@
     <swiper-slide>
       <div class="icon-item">
         <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
+          <img src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png" />
         </div>
         <div class="icon-text">
           景点门票
         </div>
       </div>
     </swiper-slide>
-    <div class="swiper-pagination" slot="pagination"></div>
+    <div class="swiper-pagination"
+         slot="pagination"></div>
   </swiper>
 </template>
 <script>
 export default {
   name: "homeIcons",
-  data() {
+  data () {
     return {
       swiperOption: {
         pagination: {
@@ -123,11 +105,12 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .icons >>> .swiper-pagination-bullets
-  bottom -0.2rem
+  bottom 0.1rem
 .icons
-  overflow visible
+  overflow-y visible
   padding 0.1rem 0
   background #fff
+  padding-bottom 0.4rem
 .icon-item
   width 25%
   float left
