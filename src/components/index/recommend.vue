@@ -1,6 +1,6 @@
 <template>
   <div class="recommend">
-    <div class="recommend-title">本周热门榜单</div>
+    <div class="index-title">本周热门榜单</div>
     <div class="recommend-content">
       <div class="recommend-item">
         <div class="item-img">
@@ -56,14 +56,13 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
+@import '~styles/mixins.styl'
 .recommend
   margin-top 0.2rem
   padding-left 0.2rem
   background #fff
-  .recommend-title
-    padding 0.1rem 0
-    font-size 0.3rem
-    margin-bottom 0.1rem
+  .index-title
+    index_title()
   .recommend-content
     width 100%
     overflow-x scroll
