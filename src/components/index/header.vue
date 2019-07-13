@@ -8,14 +8,17 @@
       输入城市/景点/游玩主题
     </div>
     <div class="header-right">
-      <div>深圳<span class="iconfont header-triangle">&#xe612;</span></div>
+      <router-link to="/city"
+                   tag="div">
+        <div>深圳<span class="iconfont header-triangle">&#xe612;</span></div>
+      </router-link>
     </div>
   </div>
 </template>
 <script>
 export default {
   name: "indexHeader",
-  date() {
+  date () {
     return {
       city: "深圳"
     };
@@ -23,8 +26,9 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
+@import '~styles/mixins.styl'
 #header
-  background #00bcd4
+  background $header_bg
   line-height 0.88rem
   height 0.88rem
   color #fff
