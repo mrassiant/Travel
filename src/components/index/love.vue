@@ -77,11 +77,7 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/mixins.styl'
 .index_title
-  padding-left 0.2rem
-  margin-top 0.2rem
-  padding-bottom 0.2rem
-  padding-top 0.2rem
-  background #fff
+  recommend_title()
 .love_box
   background #fff
   padding 0.2rem

@@ -5,6 +5,7 @@
     <home-icons></home-icons>
     <index-recommend></index-recommend>
     <index-love></index-love>
+    <index-week></index-week>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import homeSwiper from "@/components/index/swiper.vue";
 import homeIcons from "@/components/index/icons.vue";
 import indexRecommend from "@/components/index/recommend.vue";
 import indexLove from "@/components/index/love.vue";
+import indexWeek from "@/components/index/week.vue";
 
 export default {
   name: "home",
@@ -22,9 +24,10 @@ export default {
     homeSwiper,
     homeIcons,
     indexRecommend,
-    indexLove
+    indexLove,
+    indexWeek
   },
-  mounted() {
+  mounted () {
     console.log(this.$route);
     console.log(this.$router);
   }
