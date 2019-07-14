@@ -1,9 +1,11 @@
 <template>
   <div id="banner">
-    <div class="banner-img">
+    <router-link to="/ListImg"
+                 class="banner-img"
+                 tag="div">
       <img src="//img1.qunarzz.com/sight/p0/1905/e6/e683c8cf5e97ce03a3.img.jpg_600x330_39d3da05.jpg"
            alt="深圳一日游">
-    </div>
+    </router-link>
     <div class="banner-info">
       <div class="banner-all-img"><span class="iconfont">&#xe610;</span>120</div>
       <div class="banner-title">世界之窗(AAAAA景区)</div>
