@@ -2,23 +2,26 @@
   <div id="city">
     <city-header></city-header>
     <hot-city></hot-city>
+    <word-city></word-city>
   </div>
 </template>
 
 <script>
-import cityHeader from "@/components/city/header"
-import hotCity from '@/components/city/hot'
+import cityHeader from "@/components/city/header";
+import hotCity from "@/components/city/hot";
+import wordCity from "@/components/city/word";
 export default {
   components: {
     cityHeader,
-    hotCity
+    hotCity,
+    wordCity
   },
-  data () {
+  data() {
     return {
       title: "城市页面"
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>
