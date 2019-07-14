@@ -3,6 +3,7 @@
     <city-header></city-header>
     <hot-city></hot-city>
     <word-city></word-city>
+    <all-city></all-city>
   </div>
 </template>
 
@@ -10,11 +11,13 @@
 import cityHeader from "@/components/city/header";
 import hotCity from "@/components/city/hot";
 import wordCity from "@/components/city/word";
+import allCity from "@/components/city/all";
 export default {
   components: {
     cityHeader,
     hotCity,
-    wordCity
+    wordCity,
+    allCity
   },
   data() {
     return {
