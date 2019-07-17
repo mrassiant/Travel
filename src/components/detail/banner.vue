@@ -1,16 +1,16 @@
 <template>
   <div id="banner">
-    <router-link to="/ListImg"
-                 class="banner-img"
-                 tag="div">
-      <img src="//img1.qunarzz.com/sight/p0/1905/e6/e683c8cf5e97ce03a3.img.jpg_600x330_39d3da05.jpg"
-           alt="深圳一日游">
-    </router-link>
+    <div class="banner-img"
+         tag="div">
+      <img src="//img1.qunarzz.com/sight/p0/1508/89/895a1b7add84f23faca053ce9e3153db.water.jpg_600x330_93d96bdf.jpg"
+           alt="深圳一日游" />
+    </div>
     <div class="banner-info">
-      <div class="banner-all-img"><span class="iconfont">&#xe610;</span>120</div>
+      <div class="banner-all-img">
+        <span class="iconfont">&#xe610;</span>120
+      </div>
       <div class="banner-title">世界之窗(AAAAA景区)</div>
     </div>
-
   </div>
 </template>
 
@@ -18,11 +18,9 @@
 export default {
   name: "detailBanner",
   data () {
-    return {
-
-    }
+    return {};
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>
@@ -32,15 +30,17 @@ export default {
   .banner-img
     width 100%
     img
-      max-width 100%
+      width 100%
   .banner-info
     position absolute
-    left 0.35rem
+    left 0rem
     bottom 0.3rem
     color #ffffff
     width 100%
     display block
     z-index 9
+    padding-left 0.3rem
+    box-sizing border-box
     .banner-title
       font-size 0.35rem
       width 100%

@@ -1,7 +1,9 @@
 <template>
   <div id="header">
     <div class="header_title">
-      <span class="iconfont icon-back">&#xe682;</span>
+      <router-link tag="span" to="/" class="iconfont icon-back">
+        &#xe682;
+      </router-link>
       <span class="title_text">{{ title }}</span>
     </div>
     <div class="header_selec">
@@ -10,18 +12,17 @@
         <li>境外·港澳台</li>
       </ul>
     </div>
-
   </div>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       title: "城市选择"
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

@@ -1,43 +1,47 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
-import City from "./views/City.vue";
-import Detail from "./views/Detail.vue";
-import ListImg from "./views/ListImg.vue";
+//import Home from "./views/Home.vue";
+//import City from "./views/City.vue";
+//import Detail from "./views/Detail.vue";
+//import ListImg from "./views/ListImg.vue";
 
 Vue.use(Router);
 
+let scrollBehavior = function(to, from, savedPosition) {
+  if (savedPosition) {
+    return savedPosition;
+  } else {
+    return { x: 0, y: 0 };
+  }
+};
+
 export default new Router({
   mode: "history",
+  scrollBehavior,
   routes: [
     {
       path: "/",
       name: "home",
-      component: Home
+      meta: {
+        keepAlive: true
+      },
+      component: () => import("./views/Home.vue")
     },
     {
       path: "/city",
       name: "city",
-      component: City
+      meta: {
+        keepAlive: true
+      },
+      component: () => import("./views/City.vue")
     },
     {
       path: "/detail/:id",
       name: "detail",
-      component: Detail
-    },
-    {
-      path: "/listImg/:id",
-      name: "listImg",
-      component: ListImg
-    },
-    {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+      meta: {
+        keepAlive: true
+      },
+      component: () => import("./views/Detail.vue")
     }
   ]
 });

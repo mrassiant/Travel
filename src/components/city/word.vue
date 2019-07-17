@@ -1,35 +1,12 @@
 <template>
   <div>
-    <div class="city_title">
-      字母排序
-    </div>
     <div class="word_list">
-      <div class="list_item">A</div>
-      <div class="list_item">B</div>
-      <div class="list_item">C</div>
-      <div class="list_item">D</div>
-      <div class="list_item">E</div>
-      <div class="list_item">F</div>
-      <div class="list_item">G</div>
-      <div class="list_item">H</div>
-      <div class="list_item">I</div>
-      <div class="list_item">J</div>
-      <div class="list_item">K</div>
-      <div class="list_item">L</div>
-      <div class="list_item">M</div>
-      <div class="list_item">N</div>
-      <div class="list_item">O</div>
-      <div class="list_item">P</div>
-      <div class="list_item">Q</div>
-      <div class="list_item">R</div>
-      <div class="list_item">S</div>
-      <div class="list_item">T</div>
-      <div class="list_item">U</div>
-      <div class="list_item">V</div>
-      <div class="list_item">W</div>
-      <div class="list_item">X</div>
-      <div class="list_item">Y</div>
-      <div class="list_item">Z</div>
+      <div class="list_item"
+           v-for="item in words"
+           :key="item"
+           @click="changePosition">
+        {{ item }}
+      </div>
     </div>
   </div>
 </template>
@@ -37,8 +14,24 @@
 <script>
 export default {
   name: "wordCity",
-  data() {
+  props: ["allCity"],
+  data () {
     return {};
+  },
+  methods: {
+    changePosition (e) {
+      let code = e.target.innerText;
+      this.$emit("changePosition", code);
+    }
+  },
+  computed: {
+    words () {
+      let words = [];
+      for (let k in this.allCity) {
+        words.push(k);
+      }
+      return words;
+    }
   }
 };
 </script>
@@ -48,16 +41,18 @@ export default {
 .city_title
   city_title()
 .word_list
-  width 100%
-  display block
+  position fixed
+  top 0rem
+  bottom 0
+  right 0rem
+  width 0.5rem
+  display flex
+  flex-direction column
+  justify-content center
   overflow hidden
-  background #ffffff
+  text-align center
+  color #00bcd4
   .list_item
-    width 16.666%
-    display block
-    float left
-    box-sizing border-box
-    font-size 0.25rem
-    text-align center
-    padding 0.22rem 0
+    background #ffffff
+    padding 0.03rem 0
 </style>

@@ -2,57 +2,30 @@
   <div class="recommend">
     <div class="index-title">本周热门榜单</div>
     <div class="recommend-content">
-      <div class="recommend-item">
+      <router-link
+        tag="div"
+        :to="'/detail/' + item.id"
+        class="recommend-item"
+        v-for="item in hot"
+        :key="item.id"
+      >
         <div class="item-img">
-          <img
-            src="http://img1.qunarzz.com/sight/p0/1905/e6/e683c8cf5e97ce03a3.img.jpg_250x250_010a4f10.jpg"
-            alt="世界之窗"
-          />
+          <img :src="item.img" :alt="item.title" />
         </div>
-        <div class="item-text">世界之窗</div>
-      </div>
-      <div class="recommend-item">
-        <div class="item-img">
-          <img
-            src="http://img1.qunarzz.com/sight/p0/1905/e6/e683c8cf5e97ce03a3.img.jpg_250x250_010a4f10.jpg"
-            alt="世界之窗"
-          />
-        </div>
-        <div class="item-text">世界之窗</div>
-      </div>
-      <div class="recommend-item">
-        <div class="item-img">
-          <img
-            src="http://img1.qunarzz.com/sight/p0/1905/e6/e683c8cf5e97ce03a3.img.jpg_250x250_010a4f10.jpg"
-            alt="世界之窗"
-          />
-        </div>
-        <div class="item-text">世界之窗</div>
-      </div>
-      <div class="recommend-item">
-        <div class="item-img">
-          <img
-            src="http://img1.qunarzz.com/sight/p0/1905/e6/e683c8cf5e97ce03a3.img.jpg_250x250_010a4f10.jpg"
-            alt="世界之窗"
-          />
-        </div>
-        <div class="item-text">世界之窗</div>
-      </div>
-      <div class="recommend-item">
-        <div class="item-img">
-          <img
-            src="http://img1.qunarzz.com/sight/p0/1905/e6/e683c8cf5e97ce03a3.img.jpg_250x250_010a4f10.jpg"
-            alt="世界之窗"
-          />
-        </div>
-        <div class="item-text">世界之窗</div>
-      </div>
+        <div class="item-text">{{ item.title }}</div>
+      </router-link>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "indexRecommend"
+  name: "indexRecommend",
+  props: {
+    hot: {
+      type: Array,
+      request: true
+    }
+  }
 };
 </script>
 <style lang="stylus" scoped>

@@ -1,114 +1,34 @@
 <template>
-  <swiper :options="swiperOption" class="icons">
+  <swiper :options="swiperOption"
+          class="icons">
     <!-- slides -->
-    <swiper-slide>
-      <div class="icon-item">
+
+    <swiper-slide v-for="(page, index) in lists"
+                  :key="index">
+      <div class="icon-item"
+           v-for="item in page"
+           :key="item.id">
         <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
+          <img :src="item.img" />
         </div>
         <div class="icon-text">
-          景点门票
-        </div>
-      </div>
-      <div class="icon-item">
-        <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
-        </div>
-        <div class="icon-text">
-          景点门票
-        </div>
-      </div>
-      <div class="icon-item">
-        <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
-        </div>
-        <div class="icon-text">
-          景点门票
-        </div>
-      </div>
-      <div class="icon-item">
-        <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
-        </div>
-        <div class="icon-text">
-          景点门票
-        </div>
-      </div>
-      <div class="icon-item">
-        <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-          />
-        </div>
-        <div class="icon-text">
-          景点门票
-        </div>
-      </div>
-      <div class="icon-item">
-        <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
-        </div>
-        <div class="icon-text">
-          景点门票
-        </div>
-      </div>
-      <div class="icon-item">
-        <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
-        </div>
-        <div class="icon-text">
-          景点门票
-        </div>
-      </div>
-      <div class="icon-item">
-        <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-            alt=""
-          />
-        </div>
-        <div class="icon-text">
-          景点门票
+          {{ item.title }}
         </div>
       </div>
     </swiper-slide>
-    <swiper-slide>
-      <div class="icon-item">
-        <div class="icon-img">
-          <img
-            src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-          />
-        </div>
-        <div class="icon-text">
-          景点门票
-        </div>
-      </div>
-    </swiper-slide>
-    <div class="swiper-pagination" slot="pagination"></div>
+    <div class="swiper-pagination"
+         slot="pagination"></div>
   </swiper>
 </template>
 <script>
 export default {
   name: "homeIcons",
-  data() {
+  props: {
+    icons: {
+      type: Array
+    }
+  },
+  data () {
     return {
       swiperOption: {
         pagination: {
@@ -116,6 +36,19 @@ export default {
         }
       }
     };
+  },
+  computed: {
+    lists () {
+      let pages = [];
+      this.icons.forEach((item, index) => {
+        const page = Math.floor(index / 8);
+        if (!pages[page]) {
+          pages[page] = [];
+        }
+        pages[page].push(item);
+      });
+      return pages;
+    }
   }
 };
 </script>

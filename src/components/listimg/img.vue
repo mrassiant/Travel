@@ -3,33 +3,73 @@
     <div class="list-img">
       <div class="listAll">
         <div class="item">
-          <img src="https://imgs.qunarzz.com/sight/p0/1905/e6/e683c8cf5e97ce03a3.img.jpg_350x240_9f062fdc.jpg"
-               alt="深圳一日游">
+          <img
+            src="https://imgs.qunarzz.com/sight/p0/1905/e6/e683c8cf5e97ce03a3.img.jpg_350x240_9f062fdc.jpg"
+            alt="深圳一日游"
+          />
         </div>
         <div class="item">
-          <img src="https://imgs.qunarzz.com/sight/p0/1905/71/716ed1ae84b2141ca3.img.jpg_350x240_d9dcff03.jpg"
-               alt="极速挑战">
+          <img
+            src="https://imgs.qunarzz.com/sight/p0/1905/71/716ed1ae84b2141ca3.img.jpg_350x240_d9dcff03.jpg"
+            alt="极速挑战"
+          />
         </div>
         <div class="item">
-          <img src="https://imgs.qunarzz.com/sight/p0/1905/ba/ba5e7d1d609e56f6a3.img.jpg_350x240_34bffadd.jpg"
-               alt="这就是命">
+          <img
+            src="https://imgs.qunarzz.com/sight/p0/1905/ba/ba5e7d1d609e56f6a3.img.jpg_350x240_34bffadd.jpg"
+            alt="这就是命"
+          />
         </div>
         <div class="item">
-          <img src="https://imgs.qunarzz.com/sight/p0/1904/c2/c26e1e4ffe899843a3.water.jpg_350x240_8b8a93ab.jpg"
-               alt="世界之窗">
+          <img
+            src="https://imgs.qunarzz.com/sight/p0/1904/c2/c26e1e4ffe899843a3.water.jpg_350x240_8b8a93ab.jpg"
+            alt="世界之窗"
+          />
         </div>
       </div>
     </div>
+    <swiper :options="swiperOption" class="swiper">
+      <swiper-slide>
+        <img
+          src="https://imgs.qunarzz.com/sight/p0/1905/e6/e683c8cf5e97ce03a3.img.jpg_350x240_9f062fdc.jpg"
+          alt="深圳一日游"
+        />
+      </swiper-slide>
+      <swiper-slide>
+        <img
+          src="https://imgs.qunarzz.com/sight/p0/1905/e6/e683c8cf5e97ce03a3.img.jpg_350x240_9f062fdc.jpg"
+          alt="深圳一日游"
+        />
+      </swiper-slide>
+      <swiper-slide>
+        <img
+          src="https://imgs.qunarzz.com/sight/p0/1905/e6/e683c8cf5e97ce03a3.img.jpg_350x240_9f062fdc.jpg"
+          alt="深圳一日游"
+        />
+      </swiper-slide>
+      <swiper-slide>
+        <img
+          src="https://imgs.qunarzz.com/sight/p0/1905/e6/e683c8cf5e97ce03a3.img.jpg_350x240_9f062fdc.jpg"
+          alt="深圳一日游"
+        />
+      </swiper-slide>
+    </swiper>
   </div>
 </template>
 
 <script>
 export default {
   name: "allImg",
-  data () {
-    return {}
+  data() {
+    return {
+      swiperOption: {
+        pagination: {
+          el: ".swiper-pagination"
+        }
+      }
+    };
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

@@ -1,11 +1,11 @@
 <template>
   <div class="home">
     <index-header></index-header>
-    <home-swiper></home-swiper>
-    <home-icons></home-icons>
-    <index-recommend></index-recommend>
-    <index-love></index-love>
-    <index-week></index-week>
+    <home-swiper :banner="banner"></home-swiper>
+    <home-icons :icons="icons"></home-icons>
+    <index-recommend :hot="hot"></index-recommend>
+    <index-love :love="love"></index-love>
+    <index-week :week="week"></index-week>
   </div>
 </template>
 
@@ -27,9 +27,31 @@ export default {
     indexLove,
     indexWeek
   },
-  mounted () {
-    console.log(this.$route);
-    console.log(this.$router);
+  data() {
+    return {
+      banner: [],
+      icons: [],
+      hot: [],
+      love: [],
+      week: []
+    };
+  },
+  methods: {
+    async getIndexInfos() {
+      const res = await this.$http.get("/api/index.json");
+      const data = res.data;
+      if (data.rest) {
+        const rest = data.data;
+        this.banner = rest.banner;
+        this.icons = rest.icons;
+        this.hot = rest.hotimg;
+        this.love = rest.loveimg;
+        this.week = rest.weekimg;
+      }
+    }
+  },
+  mounted() {
+    this.getIndexInfos();
   }
 };
 </script>

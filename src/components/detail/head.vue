@@ -27,19 +27,26 @@ export default {
   },
   methods: {
     handleScroll () {
-      var top = document.documentElement.scrollTop
-      console.log(top)
+      var top =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+
       if (top > 45) {
-        let opacity = top / 70
-        this.opacityStyle.opacity = opacity > 1 ? 1 : opacity
-        this.showAbs = false
+        let opacity = top / 70;
+        this.opacityStyle.opacity = opacity > 1 ? 1 : opacity;
+        this.showAbs = false;
+
       } else {
-        this.showAbs = true
+        this.showAbs = true;
       }
     }
   },
   activated () {
     window.addEventListener("scroll", this.handleScroll);
+  },
+  deactivated () {
+    window.removeEventListener("scroll", this.handleScroll);
   }
 };
 </script>

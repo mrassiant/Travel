@@ -4,24 +4,33 @@
       热门城市
     </div>
     <div class="city_list">
-      <div class="list_item">北京</div>
-      <div class="list_item">深圳</div>
-      <div class="list_item">天津</div>
-      <div class="list_item">上海</div>
-      <div class="list_item">长沙</div>
-      <div class="list_item">武汉</div>
+      <div
+        class="list_item"
+        v-for="item in hotCity"
+        :key="item.id"
+        @click="changeCity(item.name)"
+      >
+        {{ item.name }}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-
+  props: {
+    hotCity: {
+      type: Array,
+      request: true
+    }
+  },
+  methods: {
+    changeCity(city) {
+      this.$store.dispatch("changeCity", city);
+      this.$router.push("/");
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

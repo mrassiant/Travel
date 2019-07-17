@@ -1,28 +1,51 @@
 <template>
   <div id="city">
     <city-header></city-header>
-    <hot-city></hot-city>
-    <word-city></word-city>
-    <all-city></all-city>
+    <all-city :allCity="allCity"
+              :hotCity="hotCity"
+              :code="code">
+    </all-city>
+    <word-list :allCity="allCity"
+               @changePosition="changePosition">
+    </word-list>
+
   </div>
 </template>
-
 <script>
 import cityHeader from "@/components/city/header";
-import hotCity from "@/components/city/hot";
-import wordCity from "@/components/city/word";
 import allCity from "@/components/city/all";
+import wordList from "@/components/city/word";
 export default {
   components: {
     cityHeader,
-    hotCity,
-    wordCity,
-    allCity
+    allCity,
+    wordList
   },
-  data() {
+  data () {
     return {
-      title: "城市页面"
+      hotCity: [],
+      allCity: [],
+      code: ''
     };
+  },
+  methods: {
+    async getCitys () {
+      const cityData = await this.$http.get("/api/city.json");
+      const data = cityData.data;
+      if (data.rest) {
+        const res = data.data;
+        let hotCity = res.hotCities;
+        let allCity = res.cities;
+        this.allCity = allCity;
+        this.hotCity = hotCity;
+      }
+    },
+    changePosition (e) {
+      this.code = e;
+    }
+  },
+  mounted () {
+    this.getCitys();
   }
 };
 </script>

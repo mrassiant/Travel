@@ -8,20 +8,26 @@
       输入城市/景点/游玩主题
     </div>
     <div class="header-right">
-      <router-link to="/city"
-                   tag="div">
-        <div>深圳<span class="iconfont header-triangle">&#xe612;</span></div>
+      <router-link to="/city" tag="div">
+        <div>
+          {{ this.city }}<span class="iconfont header-triangle">&#xe612;</span>
+        </div>
       </router-link>
     </div>
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "indexHeader",
-  date () {
-    return {
-      city: "深圳"
-    };
+  computed: {
+    ...mapState(["city"]) //将state 中的数据映射到computed 计算属性中 对应的就是computed中的city为state中的city
+
+    //将state中的city 映射到computed 中 另外命名为currentCity  上面的使用就改成 this.currentCity
+    //...mapState({
+    //  currentCity: "city"
+    // })
   }
 };
 </script>
@@ -60,6 +66,7 @@ export default {
     text-align center
     font-size 0.24rem
     padding 0 0.1rem
+    cursor pointer
     .header-triangle
       font-size 0.24rem
       margin-left 0.05rem

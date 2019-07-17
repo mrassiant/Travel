@@ -1,76 +1,57 @@
 <template>
   <div>
     <div class="index_title">
-      <span class="iconfont">&#xe635;</span>{{title}}
+      <span class="iconfont">&#xe635;</span>猜你喜欢
     </div>
     <div class="love_box">
-      <div class="love_item">
+      <router-link
+        tag="div"
+        :to="'/detail/' + item.id"
+        class="love_item"
+        v-for="item in love"
+        :key="item.id"
+      >
         <div class="item_left">
-          <img class="img"
-               src="http://img1.qunarzz.com/sight/p0/1508/2e/d9363ce50a88c8c5ff5a138c67687cd4.water.jpg_200x200_1c15c8f5.jpg"
-               alt="深圳野生动物园" />
+          <img class="img" :src="item.img" :alt="item.title" />
         </div>
         <div class="item_right">
-          <span class="title">深圳野生动物园</span>
+          <span class="title">{{ item.title }}</span>
           <div>
             <span class="star">
-              <font class="iconfont">&#xe632;</font>
-              <font class="iconfont">&#xe632;</font>
-              <font class="iconfont">&#xe632;</font>
-              <font class="iconfont">&#xe632;</font>19235条评论
-            </span>
+              <font
+                class="iconfont"
+                v-for="(star, index) in item.stars"
+                :key="index"
+                >&#xe632;</font
+              >
 
-          </div>
-          <span class="price"><b class="price_icon">￥</b>299.9<b class="price_start">起</b></span>
-        </div>
-        <div class="item_tips item_blue_bg item_yellow_bg">随买随用</div>
-      </div>
-      <div class="love_item">
-        <div class="item_left">
-          <img class="img"
-               src="http://img1.qunarzz.com/sight/p0/1508/2e/d9363ce50a88c8c5ff5a138c67687cd4.water.jpg_200x200_1c15c8f5.jpg"
-               alt="深圳野生动物园" />
-        </div>
-        <div class="item_right">
-          <span class="title">深圳野生动物园</span>
-          <div>
-            <span class="star">
-              <font class="iconfont">&#xe632;</font>19235条评论
+              {{ item.number }}条评论
             </span>
-
           </div>
-          <span class="price"><b class="price_icon">￥</b>299.9<b class="price_start">起</b></span>
+          <span class="price">
+            <b class="price_icon">￥</b>
+            {{ item.price }}
+            <b class="price_start">起</b></span
+          >
         </div>
-        <div class="item_tips item_blue_bg item_yellow_bg">随买随用</div>
-      </div>
-      <div class="love_item">
-        <div class="item_left">
-          <img class="img"
-               src="http://img1.qunarzz.com/sight/p0/1508/2e/d9363ce50a88c8c5ff5a138c67687cd4.water.jpg_200x200_1c15c8f5.jpg"
-               alt="深圳野生动物园" />
+        <div class="item_tips item_blue_bg" v-show="item.tiptype === 1">
+          随买随用
         </div>
-        <div class="item_right">
-          <span class="title">深圳野生动物园1</span>
-          <div>
-            <span class="star">
-              <font class="iconfont">&#xe632;</font>19235条评论
-            </span>
-
-          </div>
-          <span class="price"><b class="price_icon">￥</b>299.9<b class="price_start">起</b></span>
+        <div class="item_tips item_yellow_bg" v-show="item.tiptype === 2">
+          可定明日
         </div>
-        <div class="item_tips item_blue_bg item_yellow_bg">随买随用</div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
 <script>
 export default {
   name: "indexLove",
-  data () {
-    return {
-      title: "猜你喜欢"
-    };
+  props: {
+    love: {
+      type: Array,
+      request: true
+    }
   }
 };
 </script>
@@ -124,7 +105,7 @@ export default {
         margin-bottom 0.15rem
       .star
         color #333
-        font-size 0.15rem
+        font-size 0.25rem
         .iconfont
           font-size inherit
           color #ffb436
@@ -138,7 +119,7 @@ export default {
         color #ff8300
         display block
         b
-          font-size 0.15rem
+          font-size 0.25rem
           &:last-child
             color #333
 </style>
