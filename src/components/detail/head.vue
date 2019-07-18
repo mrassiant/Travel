@@ -1,14 +1,12 @@
 <template>
   <div>
-    <div class="dbheader"
-         v-show="!showAbs"
-         :style="opacityStyle">
-      <span class="iconfont icon-back">&#xe682;</span>
+    <div class="dbheader" v-show="!showAbs" :style="opacityStyle">
+      <router-link to="/" tag="span" class="iconfont icon-back"
+        >&#xe682;</router-link
+      >
       <span class="head_title">世界之窗</span>
     </div>
-    <router-link :v-show="showAbs"
-                 class="abs-header"
-                 to="/">
+    <router-link :v-show="showAbs" class="abs-header" to="/">
       <span class="iconfont">&#xe682;</span>
     </router-link>
   </div>
@@ -17,7 +15,7 @@
 <script>
 export default {
   name: "detailHead",
-  data () {
+  data() {
     return {
       showAbs: true,
       opacityStyle: {
@@ -26,7 +24,7 @@ export default {
     };
   },
   methods: {
-    handleScroll () {
+    handleScroll() {
       var top =
         window.pageYOffset ||
         document.documentElement.scrollTop ||
@@ -36,17 +34,17 @@ export default {
         let opacity = top / 70;
         this.opacityStyle.opacity = opacity > 1 ? 1 : opacity;
         this.showAbs = false;
-
       } else {
         this.showAbs = true;
       }
     }
   },
-  activated () {
+  activated() {
     window.addEventListener("scroll", this.handleScroll);
   },
-  deactivated () {
+  deactivated() {
     window.removeEventListener("scroll", this.handleScroll);
+    this.showAbs = true;
   }
 };
 </script>

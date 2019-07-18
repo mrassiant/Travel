@@ -1,34 +1,39 @@
 <template>
-  <div ref="wrapper"
-       class="lists">
+  <div ref="wrapper" class="lists">
     <div>
       <div id="hotCity">
         <div class="city_title">
           热门城市
         </div>
         <div class="city_list">
-          <div class="list_item"
-               v-for="item in hotCity"
-               :key="item.id"
-               @click="changeCity(item.name)">
+          <div
+            class="list_item"
+            v-for="item in hotCity"
+            :key="item.id"
+            @click="changeCity(item.name)"
+          >
             {{ item.name }}
           </div>
         </div>
       </div>
 
       <div id="allCitys">
-        <div class="all_item"
-             v-for="(item, key) in allCity"
-             :key="key"
-             :ref="key">
+        <div
+          class="all_item"
+          v-for="(item, key) in allCity"
+          :key="key"
+          :ref="key"
+        >
           <div class="city_title">
             {{ key }}
           </div>
           <div class="all_list">
-            <div class="list_item"
-                 v-for="c in item"
-                 :key="c.id"
-                 @click="changeCity(c.name)">
+            <div
+              class="list_item"
+              v-for="c in item"
+              :key="c.id"
+              @click="changeCity(c.name)"
+            >
               {{ c.name }}
             </div>
           </div>
@@ -42,17 +47,17 @@ import BScroll from "better-scroll";
 export default {
   name: "allCity",
   props: ["allCity", "hotCity", "code"],
-  mounted () {
-    this.$nextTick(function () {
+  mounted() {
+    this.$nextTick(function() {
       if (!this.scroll) {
         this.scroll = new BScroll(this.$refs.wrapper, { click: true });
       } else {
         this.scroll.refresh();
       }
-    })
+    });
   },
   watch: {
-    code () {
+    code() {
       if (this.code) {
         const area = this.$refs[this.code][0];
         this.scroll.scrollToElement(area, 1000);
@@ -60,13 +65,13 @@ export default {
     }
   },
   methods: {
-    changeCity (city) {
+    changeCity(city) {
       this.$store.dispatch("changeCity", city);
       this.$router.push("/");
     }
   },
   computed: {
-    words () {
+    words() {
       let words = [];
       for (let k in this.allCity) {
         words.push(k);
@@ -81,7 +86,7 @@ export default {
 @import '~styles/mixins.styl'
 .lists
   position absolute
-  top 1.4rem
+  top 1.5rem
   bottom 0
   overflow hidden
   width 100%

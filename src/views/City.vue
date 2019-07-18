@@ -1,6 +1,8 @@
 <template>
   <div id="city">
     <city-header></city-header>
+    <city-search :allCity="allCity"></city-search>
+
     <all-city :allCity="allCity"
               :hotCity="hotCity"
               :code="code">
@@ -13,13 +15,15 @@
 </template>
 <script>
 import cityHeader from "@/components/city/header";
+import citySearch from "@/components/city/search";
 import allCity from "@/components/city/all";
 import wordList from "@/components/city/word";
 export default {
   components: {
     cityHeader,
     allCity,
-    wordList
+    wordList,
+    citySearch
   },
   data () {
     return {
